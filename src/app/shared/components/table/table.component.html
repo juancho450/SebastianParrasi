@@ -44,7 +44,7 @@
 
 <div class="table-info-container">
     <div>
-        <p class="table-info-result">{{data?.length}} resultados</p>
+        <p class="table-info-result">{{data?.length ?? 0}} resultados</p>
     </div>
     <div>
         <app-pagination #pagination [collectionSize]="data?.length ?? 0" [pageSize]="selectedNumberRecord"
