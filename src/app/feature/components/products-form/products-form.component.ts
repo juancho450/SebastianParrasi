@@ -40,7 +40,9 @@ export class ProductsFormComponent implements OnInit {
 
     this.idControl.valueChanges.pipe(
       debounceTime(500),
-      filter(query => query && this.idControl.valid),
+      filter(query => {
+       return query && !this.idControl.invalid
+    }),
       switchMap(query => this.productsService.verifyProductId(query))
     ).subscribe(
       {

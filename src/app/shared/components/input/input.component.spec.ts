@@ -20,4 +20,20 @@ describe('InputComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit event input', () => {
+    const spy = spyOn(component.handleInputEvent, 'emit');
+    const event =  new Event('');
+    component.handleInput(event);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should emit event change', () => {
+    const spy = spyOn(component.handleChangeEvent, 'emit');
+    const event =  new Event('');
+    component.handleChange(event);
+
+    expect(spy).toHaveBeenCalled();
+  });
 });

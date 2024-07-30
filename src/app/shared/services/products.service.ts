@@ -28,7 +28,6 @@ export class ProductsService {
     return this.http.get<boolean>(`${this.url}/bp/products/verification/${id}`);
   }
 
-
   deleteProduct(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${this.url}/bp/products/${id}`);
   }
