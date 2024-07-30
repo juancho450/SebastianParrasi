@@ -1,0 +1,64 @@
+.table-container {
+
+    @media screen and (max-width: 795px) {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        border-collapse: collapse; border-spacing: 0;   /* cellspacing="0" */
+        width: 100%;
+
+        
+
+    
+        th{
+            font-weight: 600;
+            font-size: 14px;
+            background-color: #F3F6F9;
+        }
+        th,
+        td {
+            padding: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+    }
+
+
+    .table-actions-container{
+        position: relative;
+
+        .table-menu-actions-container{
+            position: absolute;
+            background: #fff;
+            border: 4px;
+            z-index: 2;
+
+            div{
+                padding: 20px;
+
+                p{
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+
+.table-info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+
+    .table-info-result{
+        font-size: 14px;
+    }
+
+    select {
+        width: 50px;
+        text-align: center;
+    }
+}

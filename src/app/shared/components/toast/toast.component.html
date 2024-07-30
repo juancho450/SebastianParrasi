@@ -1,0 +1,5 @@
+<div *ngIf="(toast.showsToast$ | async)" class="toast-class" [ngClass]="toast.toastState$ | async">  
+    <div style="max-width: 160px;">    
+      {{ toast.toastMessage$ | async }}  
+    </div> 
+  </div>

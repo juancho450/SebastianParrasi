@@ -1,0 +1,41 @@
+<div class="product-form-container">
+    <div class="product-form-header">
+        <p>Formulario de registro</p>
+    </div>
+
+    <hr>
+    <div class="product-form-content">
+        {{productFormGroup.errors}}
+        <form [formGroup]="productFormGroup">
+            <div class="product-form-input-container">
+                <div>
+                    <app-input [type]="'text'" [label]="'ID'" [maxLength]="10" [minLength]="3"
+                        [control]="idControl"></app-input>
+                    <small class="input-error" *ngIf="isDuplicateID">El ID ingresado ya se encuentra registrado</small>
+                </div>
+                <div>
+                    <app-input [type]="'text'" [label]="'Nombre'" [maxLength]="100" [minLength]="6"
+                        [control]="nameControl"></app-input>
+                </div>
+                <div>
+                    <app-input [type]="'text'" [label]="'Descripción'" [maxLength]="200" [minLength]="10"
+                        [control]="descriptionControl"></app-input>
+                </div>
+                <div>
+                    <app-input [type]="'text'" [label]="'Logo'" [control]="logoControl"></app-input>
+                </div>
+                <div>
+                    <app-input [type]="'date'" [label]="'Fecha liberación'"
+                        [control]="releaseDateControl" (handleInputEvent)="handleChangeDate()"></app-input>
+                </div>
+                <div>
+                    <app-input [type]="'date'" [label]="'Fecha revisión'" [control]="reviewDateControl"></app-input>
+                </div>
+            </div>
+        </form>
+        <div class="product-form-buttons-container">
+            <app-button [label]="'Reiniciar'" [buttonClass]="'btn btn-secondary'" (handleClickEvent)="handleReset()"></app-button>
+            <app-button [label]="'Enviar'" [buttonClass]="'btn btn-primary'" (handleClickEvent)="handleSend()" [disabled]="!productFormGroup.valid || isDuplicateID"></app-button>
+        </div>
+    </div>
+</div>

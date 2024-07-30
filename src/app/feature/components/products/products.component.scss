@@ -1,0 +1,28 @@
+.products-container{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 3px;
+    margin-top: 24px;
+}
+
+.products-action-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .products-action-button{
+        background-color: #F4DF66;
+        padding: 15px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+
+.products-main-container{
+    @media screen and (max-width: 795px) {
+        width: 100vw;
+        padding: 20px;
+    }
+
+}

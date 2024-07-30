@@ -1,0 +1,60 @@
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns">
+                    {{column.header}} <i class="fa fa-info-circle" aria-hidden="true" *ngIf="column.showInfo"></i>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data  | slice
+            : (pagination.currentPage - 1) * pagination.pageSize
+            : pagination.currentPage * pagination.pageSize">
+                <ng-container *ngFor="let column of columns">
+                    <td *ngIf="column.field !== 'actions' && column.field !== 'logo'">
+                        {{setRowData(item, column.field) }}
+                    </td>
+                    <td *ngIf="column.field === 'logo'" style="text-align: center;">
+                        <img width="20" height="20" [src]="setRowData(item, column.field)" alt="logo"
+                            onerror='this.style.display = "none"'>
+                    </td>
+                    <td class="th" id="actions" *ngIf="column.field === 'actions'">
+                        <div class="table-actions-container">
+                            <i class="fa fa-ellipsis-v dots" aria-hidden="true" style="cursor: pointer;" id="menu"
+                                (click)="handleShowMenuActions(item)"></i>
+                            <div class="table-menu-actions-container" *ngIf="showMenuAction && rowSelected === item">
+                                <div>
+                                    <p (click)="handleUpdate(item.id)">Actualizar</p>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p (click)="handleDelete(item.id)">Eliminar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="table-info-container">
+    <div>
+        <p class="table-info-result">{{data?.length}} resultados</p>
+    </div>
+    <div>
+        <app-pagination #pagination [collectionSize]="data?.length ?? 0" [pageSize]="selectedNumberRecord"
+            [firstLastButtons]="true" [maxSize]="2"></app-pagination>
+    </div>
+    <div>
+        <select [(ngModel)]="selectedNumberRecord">
+            <option [ngValue]="option.id" *ngFor="let option of numberRecords">
+                {{ option.value }}
+            </option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <label>{{ label }}</label>
+  <input #input [type]="type" [maxlength]="maxLength" [minlength]="minLength" [placeholder]="placeholder"
+    [disabled]="disabled" [formControl]="control" (input)="handleInput($event)" (change)="handleInput($event)" [readonly]="disabled" [min]="min"
+    [class.error-input]="control.invalid && (control.dirty || control.touched)">
+
+  <div *ngIf="control.invalid && 
+        control.errors && 
+        (control.dirty || control.touched)">
+    <small class="input-error" *ngIf="control.hasError('required')">
+      Este campo es requerido!
+    </small>
+    <small class="input-error" *ngIf="control.hasError('minlength')">
+      Minimo requerido de {{control.errors['minlength'].requiredLength}} caracteres
+    </small>
+    <small class="input-error" *ngIf="control.hasError('maxlength')">
+      Maximo requerido  de {{control.errors['maxlength'].requiredLength}} caracteres
+    </small>
+    <small class="input-error" *ngIf="control.hasError('errorReleaseDate')">
+      La fecha debe ser igual o mayor a la fecha actual
+    </small>
+  </div>
+</div>

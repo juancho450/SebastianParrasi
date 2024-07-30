@@ -1,0 +1,44 @@
+.container{
+    position: relative;
+
+    label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    input{
+        height: 40px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 4px;
+        margin: 5px 0px 0px 0px;
+        padding: 0px 24px !important;
+        width: 100%;
+
+
+        &.error-input{
+            border:1px solid #C72527;
+        }
+
+        &:focus-visible{
+          outline: none;
+        }
+
+        &:disabled {
+          opacity: 0.4;
+        }
+    }
+
+ 
+
+    .input-error{
+  
+      color: #C72527;
+    
+    }
+
+
+}

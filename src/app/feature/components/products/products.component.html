@@ -1,0 +1,13 @@
+<div class="products-main-container">
+    <div class="products-action-container">
+        <app-search-input (handleSearchData)="handleSearch($event)" [data]="filteredProducts"></app-search-input>
+        <div>
+            <button (click)="handleGoToAddProduct()" class="products-action-button">Agregar</button>
+        </div>
+    </div>
+    
+    <div class="products-container">
+        <app-table [columns]="columns" [data]="products" (handleUpdateEvent)="handleGoToEditProduct($event)" (handleDeleteEvent)="handleDeleteProduct($event)"></app-table>
+     
+    </div>
+</div>
